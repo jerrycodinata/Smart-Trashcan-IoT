@@ -51,6 +51,10 @@ df = df.dropna()
 # We can't predict "Time to Full" if it's not filling!
 df = df[df['fill_rate'] > 0.01].copy()
 
+output_file = 'data/cleaned_sensor_data.csv'
+df.to_csv(output_file)
+print(f"Data yang sudah di-cleaning berhasil disimpan ke: {output_file}")
+
 # ----------------------------------------------------------------------
 # 4. Target Creation (The Output)
 # ----------------------------------------------------------------------
