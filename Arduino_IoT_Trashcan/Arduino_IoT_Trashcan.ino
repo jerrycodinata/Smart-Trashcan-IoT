@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID           "TMPL6tQZBht1Z"
-#define BLYNK_TEMPLATE_NAME         "Quickstart Template"
-#define BLYNK_AUTH_TOKEN            "q5K-3I5o90VDFrdooLI5YxRy0Nt-geRE"
+#define BLYNK_TEMPLATE_ID           "TEMPLATE ID"
+#define BLYNK_TEMPLATE_NAME         "TEMPLATE NAME"
+#define BLYNK_AUTH_TOKEN            "AUTH TOKEN"
 #define BLYNK_PRINT Serial
 
 #include <WiFi.h>
@@ -14,16 +14,14 @@
 #define TRASH_CAN_DEPTH_CM 17.0
 
 // WiFi Credentials
-char ssid[] = "Andy's Home";  
-char pass[] = "200972AH";
-// char ssid[] = "ITHB-Public";  
-// char pass[] = "569a7e74a1";
+char ssid[] = "Wifi SSID";  
+char pass[] = "Wifi Password";
 
 // Google App Script Variables
 const char* GAS_HOST = "script.google.com"; 
 const int HTTPS_PORT = 443; 
 
-const char* GAS_URL_PREFIX = "https://script.google.com/macros/s/AKfycbxyvkA0hpjS0ykkuUVJJaKoCRI1Q50noU-yqw0Pm5p_eolECWMJgct-3VxLhAsctoW85g/exec";
+const char* GAS_URL_PREFIX = "GAS URL PREFIX";
 
 // Global Variables
 int latestDistance = 0;
