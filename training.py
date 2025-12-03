@@ -31,6 +31,10 @@ df = df[df['Lid Status'] == 'CLOSED'].copy()
 # A. Current Fullness
 df['current_fullness'] = df['Fullness (%)']
 
+# Smooth out sensor noise using rolling median
+df['Fullness (%)'] = df['Fullness (%)'].rolling(window=5, center=True).median()
+df = df.dropna()
+
 # B. Filling Rate (Change over last 15 minutes / ~60 readings)
 # Positive value = Filling up. Negative = Emptied.
 # We use a rolling mean to smooth out sensor noise.
