@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
+import joblib
 
 # ----------------------------------------------------------------------
 # 1. Configuration
@@ -22,15 +23,11 @@ except FileNotFoundError:
 # ----------------------------------------------------------------------
 df['Timestamp'] = pd.to_datetime(df['Timestamp (ISO 8601)'])
 df = df.set_index('Timestamp').sort_index()
-
-# Filter CLOSED lid data
 df = df[df['Lid Status'] == 'CLOSED'].copy()
 
 # ----------------------------------------------------------------------
 # 3. Feature Engineering (Inputs)
 # ----------------------------------------------------------------------
-# We want the model to learn the RATE of filling.
-
 # A. Current Fullness
 df['current_fullness'] = df['Fullness (%)']
 
@@ -153,7 +150,6 @@ for f in range(X.shape[1]):
 # ----------------------------------------------------------------------
 # 9. Save the Model
 # ----------------------------------------------------------------------
-import joblib
 
 # Save the model to a file
 model_filename = 'trash_predictor_model.pkl'
